@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { getMovies } from "../services/api"
-import Card from './Card'
+
+import "./Row.css"
+
+const imageHost = "https://image.tmdb.org/t/p/original/"
 
 const Row = ({ title, path }) => {
   const [movies, setMovies] = useState([])
@@ -9,7 +12,7 @@ const Row = ({ title, path }) => {
     try {
       const data = await getMovies(_path)
       setMovies(data?.results)
-      console.log(movies)
+      // console.log(data)
     } catch (error) {
       console.log(error)
     }
@@ -24,8 +27,8 @@ const Row = ({ title, path }) => {
     <div className='row-container'>
       <h2 className='row-header'>{title}</h2>
       <div className='row-cards'>
-        {movies.map((movie) => (
-          <Card key={movie.id} movie={movie}/>
+        {movies?.map((movie) => (
+          <img className='movie-card' key={movie.id} src={`${imageHost}${movie.poster_path}`} alt={movie.name}/>
         ))}
       </div>
     </div>
