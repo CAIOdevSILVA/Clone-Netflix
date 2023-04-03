@@ -12,9 +12,20 @@
   overflow-y: hidden;
   overflow-x: scroll;
   padding: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 .row-cards::-webkit-scrollbar{
-  display: none;
+  height: .65rem;
+}
+
+.row-cards::-webkit-scrollbar-track{
+  background-color: #323232;
+  border-radius: 6.25rem;
+}
+
+.row-cards::-webkit-scrollbar-thumb{
+  background-color: #424242;
+  border-radius: 6.25rem;;
 }
 
 .movie-card{
